@@ -3,12 +3,13 @@ import { Module } from "@nestjs/common";
 import { Postagem } from "./entities/postagem.entity";
 import { PostagemController } from "./controller/postagem.controller";
 import { PostagemService } from "./service/postagem.service";
+import { TemaModule } from "../tema/tema.module";
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Postagem])],
+  imports: [TypeOrmModule.forFeature([Postagem]), TemaModule],
   controllers: [PostagemController],
   providers: [PostagemService],
-  exports:[],
+  exports: [],
 })
-export class PostagemModule {}
+export class PostagemModule { }
 
